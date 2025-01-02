@@ -1,4 +1,4 @@
-let endDate = new Date("1 Jan, 2025 15:09:00").getTime();
+let endDate = new Date("1 Jan, 2025 15:45:00").getTime();
 let startDate = new Date().getTime();
 
 
@@ -28,14 +28,14 @@ let x = setInterval(function updateTime() {
 
     // calculating width percentage for progress bar
     let totalDistance = endDate - startDate;
-    let widthPercentage = (distanceCovered/totalDistance) * 100;
+    let widthPercentage = Math.ceil((distanceCovered/totalDistance) * 100);
 
     // set width for progress bar
     document.getElementById("progress-bar").style.width = widthPercentage + "%";
 
     if(distancePending < 0){
         clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
+        document.getElementById("countdown").innerHTML = "EXPIRED....";
         document.getElementById("progress-bar").style.width = "100%";
     }
 
